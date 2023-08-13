@@ -1,0 +1,35 @@
+/* Add your custom styles here */
+
+/* Reset default margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set the body background color and font color */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Center the main container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The rest of your CSS styles */

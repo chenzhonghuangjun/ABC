@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Campus France Vietnam</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Region 11 Slide</title>
+    <!-- Link to Bootstrap CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Define the main container to act as the grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            /* 10 columns with equal width */
+
+            /* Adjust the gap between regions */
+            background-color: #f0f0f0;
+            /* Optional background color */
+
+        }
+
+        /* Define the styles for different region sizes */
+        .region {
+
+
+            text-align: center;
+
+
+        }
+
+        /* Define the larger regions (2x1) */
+        .region.larger {
+            grid-row-end: span 2;
+        }
+
+        /* Define the layout for each specific region */
+        /* Note: Adjust the span value as needed for different regions */
+        .region-1 {
+            grid-column-end: span 2;
+        }
+
+        .region-2 {
+            grid-column-end: span 2;
+        }
+
+        /* The rest of the regions (1x1) */
+        #region4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            /* Adjust the font size as needed */
+            font-weight: bold;
+            /* Make the text bold */
+            color: blue;
+        }
+
+        #region5 {
+
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #facebook-button {
+
+            color: white;
+            padding: 10px 20px;
+
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        #Etude-button {
+
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        #region7 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: red;
+            /* Red background color */
+            color: #fff;
+            /* White text color */
+        }
+
+        #language-button {
+            display: inline-block;
+            background-color: #3b5998;
+            /* Replace with desired background color */
+            padding: 10px 20px;
+            /* Adjust padding as needed */
+            border-radius: 5px;
+            /* Add rounded corners as needed */
+            color: #fff;
+            /* Set text color to white */
+            text-decoration: none;
+            position: relative;
+            /* Set position to relative for the parent container */
+        }
+
+        #language-button img {
+            width: 20px;
+            /* Set the desired width for the icon */
+            height: 20px;
+            /* Set the desired height for the icon */
+            vertical-align: middle;
+            margin-right: 5px;
+            /* Add some spacing between the icon and text */
+        }
+
+        #language-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+
+            background-color: #3b5998;
+            /* Replace with desired background color */
+            border-radius: 5px;
+            /* Add rounded corners as needed */
+            color: #fff;
+            /* Set text color to white */
+            display: none;
+        }
+
+        #language-button:hover #language-dropdown {
+            display: block;
+        }
+
+        #language-dropdown a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .region#region9 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Green background color */
+            color: #fff;
+            /* White text color */
+
+            margin-bottom: 5px;
+
+        }
+
+        .region#region10 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Green background color */
+            color: #fff;
+            /* White text color */
+
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+
+        }
+
+
+
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-region {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .footer-region:last-child {
+            margin-right: 0;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        p,
+        a {
+            font-size: 14px;
+            color: #666;
+        }
+
+        a {
+            text-decoration: none;
+            color: #009688;
+        }
+
+        a:hover {
+            color: rgb(0, 157, 255);
+        }
+
+        .region-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0033ff;
+            color: #fff;
+            text-decoration: none;
+
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Optional: Hover effect */
+        .region-button:hover {
+            background-color: #0056b3;
+        }
+
+        #site-button {
+            display: inline-block;
+            background-color: #3b9865;
+            /* Replace with desired background color */
+            padding: 10px 20px;
+            /* Adjust padding as needed */
+            border-radius: 5px;
+            /* Add rounded corners as needed */
+            color: #fff;
+            /* Set text color to white */
+            text-decoration: none;
+            position: relative;
+            /* Set position to relative for icon positioning */
+        }
+
+        #site-button:before {
+            content: " ";
+            /* Empty content to create space for the icon */
+            display: inline-block;
+            width: 20px;
+            /* Set the width of the icon */
+            height: 20px;
+            /* Set the height of the icon */
+            background-image: url("https://www.vietnam.campusfrance.org/themes/custom/campus/assets/images/icon_header3_hover%402x.png");
+            background-size: cover;
+            /* Adjust the background size to fit the icon */
+            vertical-align: middle;
+            /* Vertically align the icon with the text */
+            margin-right: 5px;
+            /* Add some spacing between the icon and text */
+        }
+
+        /* Thẻ cha của hình ảnh */
+        .image-container {
+            position: relative;
+        }
+
+        /* Nút "Decouvrir" */
+        .btn-decouvrir {
+            position: absolute;
+            bottom: 10px;
+            /* Thay đổi giá trị này để điều chỉnh vị trí theo ý muốn */
+            left: 50%;
+            /* Đặt nút ở giữa ngang của thẻ cha */
+            transform: translateX(-50%);
+            /* Dịch chuyển nút lùi lại 50% chiều ngang của chính nó để căn giữa */
+        }
+
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQavcZbTj7Mrb5-WmcZxRa-Zdg64IkpBqW2mA&usqp=CAU');
+            background-size: cover;
+            margin-right: 5px;
+            /* Add some spacing between the icon and the text */
+        }
+
+        /* Style for the heading */
+        .col-sm-6 h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            /* Add spacing below the heading */
+        }
+
+        /* Style for the paragraph */
+        .col-sm-6 p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            /* Increase line-height for better readability */
+        }
+
+        .row {
+            background-color: #f9f9f9;
+            /* Màu nền (sử dụng mã màu CSS) */
+            padding: 20px;
+            /* Khoảng cách giữa nội dung và viền của container */
+            border-radius: 5px;
+            /* Bo tròn viền container */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng cho container */
+        }
+
+        .actualite {
+            opacity: 0;
+            /* Ẩn phần tử khi ban đầu */
+            transform: translateY(50px);
+            /* Di chuyển phần tử xuống 50px khi ban đầu */
+            transition: opacity 1s ease, transform 1s ease;
+            /* Thêm hiệu ứng chuyển đổi */
+        }
+
+
+        .search-tool {
+            display: inline-block;
+            position: relative;
+            font-size: 16px;
+            color: #f8f3f3;
+            background-color: #fff;
+            padding: 10px 15px 10px 40px;
+            /* Added left padding for the icon */
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #2a0096;
+        }
+
+        .search-tool:hover .search-options {
+            display: block;
+        }
+
+        .search-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 5px 0;
+            min-width: 150px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .search-options a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.2s;
+        }
+
+        .search-options a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .region {
+                grid-column: span 1;
+            }
+
+            .region-1,
+            .region-2 {
+                grid-row-end: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- Region 1 -->
+        <div class="region region-1 larger">
+            <img alt="Image 1"
+                src="https://www.vietnam.campusfrance.org/modules/custom/campus_common/img/logo-republique-francaise.svg" />
+        </div>
+        <!-- Region 2 -->
+        <div class="region region-2 larger">
+            <img alt="Image 2"
+                src="https://www.vietnam.campusfrance.org/modules/custom/campus_common/img/logo-campus-france.png" />
+        </div>
+        <!-- Other regions (1x1) -->
+        <div class="region">
+            <img alt="Image 3"
+                src="https://www.vietnam.campusfrance.org/sites/pays/files/vietnam/drapeau/drapeau_vietnam_0.png" />
+        </div>
+        <div class="region" id="region4">
+            Campus France Vietnam
+        </div>
+        <!-- Add more image regions here -->
+        <div class="region" id="region5">
+            <a href="https://www.facebook.com/CampusFranceVietnam/" id="facebook-button" target="_blank">
+                <img alt="Image 5"
+                    src="https://www.vietnam.campusfrance.org/sites/pays/files/vietnam/2017-12/facebook_picto.png" /></a>
+        </div>
+        <div class="region" id="region7">
+            <a href="https://pastel.diplomatie.gouv.fr/etudesenfrance/dyn/public/login.html" id="Etude-button"
+                target="_blank">
+                <img alt="Etude en France Icon"
+                    src="https://www.vietnam.campusfrance.org/themes/custom/campus/assets/images/icon_header1%402x.png" />
+                Etude en France
+            </a>
+        </div>
+        <div class="region" id="region7">
+            <div id="language-button">
+                <img alt="Language Icon"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2TRWJWZbZi-nxh1QPoewt5e6uxRLPX8QubA&amp;usqp=CAU" />
+                French
+                <div id="language-dropdown">
+                    <a href="#" onclick="toggleLanguage()">Vietnam</a>
+                </div>
+            </div>
+        </div>
+        <div class="region" id="region7">
+            <a href="https://www.campusfrance.org/" id="site-button" target="_blank">
+                Site internationale
+            </a>
+        </div>
+        <div class="region" id="region9">
+            <a class="region-button" href="#region9">Study in France</a>
+        </div>
+        <div class="region" id="region9">
+            <a class="region-button" href="#region9">Program</a>
+        </div>
+        <div class="region" id="region9">
+            <a class="region-button" href="#region9">About us</a>
+        </div>
+        <div class="region" id="region7">
+            <a href="https://www.campusfrance.org/en/documentary-resources" id="facebook-button" target="_blank">
+                <i class="fas fa-book"></i> Resource</a>
+        </div>
+        <div class="region" id="region7">
+            <a href="https://www.vietnam.campusfrance.org/vi/du-hoc-phap" id="facebook-button" target="_blank">
+                <i class="fas fa-plane"></i> Come to France</a>
+        </div>
+        <div class="region" id="region10">
+            <button class="search-button" onclick="toggleSearchBox()" type="submit">
+                <i class="fas fa-search"></i>
+                Search
+            </button>
+            <div id="search-box">
+                <input placeholder="Type here..." type="text" />
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="container mt-5">
+        <div class="carousel slide" data-bs-interval="1300" data-bs-ride="carousel" id="region_11_carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li class="active" data-bs-slide-to="0" data-bs-target="#region_11_carousel"></li>
+                <li data-bs-slide-to="1" data-bs-target="#region_11_carousel"></li>
+                <li data-bs-slide-to="2" data-bs-target="#region_11_carousel"></li>
+            </ol>
+            <!-- Slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img alt="Image 1" class="d-block w-100"
+                        src="https://www.vietnam.campusfrance.org/sites/pays/files/vietnam/styles/desktop_home_couple_mot_image/public/medias/images/2021-01/Alumni_WEB_1.jpg?h=04413ac5&amp;itok=J0cbSd96" />
+                </div>
+                <div class="carousel-item">
+                    <img alt="Image 2" class="d-block w-100"
+                        src="https://www.vietnam.campusfrance.org/sites/pays/files/vietnam/styles/desktop_home_couple_mot_image/public/medias/images/2020-08/32775770060_6a1995b408_o_0.jpg?h=d668167d&amp;itok=L2gQcSbP" />
+                </div>
+                <div class="carousel-item">
+                    <img alt="Image 3" class="d-block w-100"
+                        src="https://www.vietnam.campusfrance.org/sites/pays/files/vietnam/styles/desktop_home_couple_mot_image/public/timeline_7.jpg?h=a1e1a043&amp;itok=YPKwiO6g" />
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="carousel-control-prev" data-bs-slide="prev" href="#region_11_carousel" role="button">
+                <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" data-bs-slide="next" href="#region_11_carousel" role="button">
+                <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="search-tool">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQCaeIQRRRNgsVVnX8WeCaiuVb2221pxsA-1peOzKe6w&s"
+            alt="Search Icon"
+            style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px;">
+        Tìm kiếm chương trình đào tạo
+        <div class="search-options">
+            <a href="#">Bachelor</a>
+            <a href="#">Master</a>
+            <a href="#">PhD</a>
+        </div>
+    </div>
+    <div class="actualite">
+        <div class="row">
+            <div class="col-sm-6 image-container">
+                <!-- Nút "Decouvrir" được thêm vào vùng 2 -->
+                <a href="https://www.campusfrance.org/fr/carte-de-france" target="_blank"
+                    class="btn btn-primary btn-decouvrir">
+                    <i class="icon"></i> Decouvrir
+                </a>
+                <!-- Hình ảnh được thêm vào vùng 2 -->
+                <img src="https://www.vietnam.campusfrance.org/modules/custom/campus_common/img/carte-france-home.svg"
+                    alt="Hình ảnh">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-6">
+                    <div class="row" id="'Bienvenue">
+                        <h2>Bienvenue en France</h2>
+                        <p>25 năm trở lại đây, Pháp đã trở thành điểm đến du lịch hàng đầu của thế giới.
+                            Mỗi vùng của nước Pháp lại có những nét đặc trưng riêng biệt. Du học Pháp sẽ là cơ hội để
+                            bạn
+                            khám
+                            phá một đất nước nổi tiếng với nhiều danh lam thắng cảnh và văn hoá đa dạng.
+                            Mọi sinh viên Việt Nam muốn du học Pháp cần thực hiện quy trình ETUDES EN FRANCE</p>
+                    </div>
+                    <div class="row">
+                        <h2>POURQUOI CHOISIR LA FRANCE</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/wX7tya4VxkY?list=TLGGYmn5ojvpEBwyNzA3MjAyMw"
+                                frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <footer>
+        <div class="footer-region">
+            <!-- Content for the first region of the footer -->
+            <h4><a href="https://www.campusfrance.org/fr">TÌM HIỂU THÊM</a></h4>
+            <p>Cơ quan phụ trách quảng bá giáo dục đại học Pháp, tiếp đón và trao đổi sinh viên quốc tế</p>
+        </div>
+        <div class="footer-region">
+            <!-- Content for the second region of the footer -->
+            <h4><a href="https://www.vietnam.campusfrance.org/vi/recherche/type/dossier">Tài liệu theo chủ đề</a></h4>
+        </div>
+        <div class="footer-region">
+            <!-- Content for the second region of the footer -->
+            <h4><a href="https://www.vietnam.campusfrance.org/vi/recherche/type/actualite">Tin tức</a></h4>
+            <h4><a href="https://www.vietnam.campusfrance.org/vi/recherche/type/video">Video</a></h4>
+        </div>
+        <div class="footer-region">
+            <!-- Content for the fourth region of the footer -->
+            <h4>HỖ TRỢ</h4>
+            <p><a href="https://www.vietnam.campusfrance.org/vi/faq">FAQ</a></p>
+            <p><a href="https://www.campusfrance.org/en/documentary-resources">Document source</a></p>
+        </div>
+
+    </footer>
+    <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleSearchBox() {
+            var searchBox = document.getElementById('search-box');
+            if (searchBox.style.display === 'none') {
+                searchBox.style.display = 'block';
+            } else {
+                searchBox.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        var currentLanguage = "French"; // Set the default language
+
+        function toggleLanguage() {
+            var button = document.getElementById('language-button');
+            var dropdown = document.getElementById('language-dropdown');
+            if (currentLanguage === 'French') {
+                currentLanguage = 'Vietnam';
+            } else {
+                currentLanguage = 'French';
+            }
+            button.innerHTML = '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2TRWJWZbZi-nxh1QPoewt5e6uxRLPX8QubA&usqp=CAU" alt="Language Icon"> ' + currentLanguage +
+                '<div id="language-dropdown"><a href="#" onclick="toggleLanguage()">French</a><a href="#" onclick="toggleLanguage()">Vietnam</a></div>';
+            dropdown.style.display = 'none';
+        }
+
+        function toggleLanguageOnHover(isHovering) {
+            var dropdown = document.getElementById('language-dropdown');
+            dropdown.style.display = isHovering ? 'block' : 'none';
+        }
+    </script>
+    <script>
+        // Hàm kiểm tra xem phần tử có hiển thị trong khung nhìn hay không
+        function isElementInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Hàm thực hiện hiệu ứng slide khi cuộn chuột đến vị trí của phần tử có lớp "actualite"
+        function showActualiteOnScroll() {
+            var actualiteElement = document.querySelector('.actualite');
+            if (isElementInViewport(actualiteElement)) {
+                actualiteElement.style.opacity = '1';
+                actualiteElement.style.transform = 'translateY(0)';
+                // Loại bỏ sự kiện cuộn chuột sau khi đã kích hoạt hiệu ứng
+                window.removeEventListener('scroll', showActualiteOnScroll);
+            }
+        }
+
+        // Thêm sự kiện cuộn chuột để kích hoạt hiệu ứng slide khi đến vị trí phần tử có lớp "actualite"
+        window.addEventListener('scroll', showActualiteOnScroll);
+    </script>
+</body>
+
+</html>
